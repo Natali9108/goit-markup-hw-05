@@ -538,7 +538,7 @@ img {
   line-height: calc(28 / 18);
   letter-spacing: 0.03em;
 
-  color: tomato; /*var(--title-text-color);*/
+  color: var(--title-text-color);
 }
 
 .project-wrap {
