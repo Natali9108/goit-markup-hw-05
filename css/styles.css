@@ -46,6 +46,7 @@ p {
 
 img {
   display: block;
+  max-width: 100%;
   height: auto;
 }
 
@@ -82,9 +83,6 @@ img {
   color: var(--accent-color);
 }
 
-.logo:focus {
-  color: var(--accent-color);
-}
 /*logo в хедері*/
 .studio-black {
   color: var(--studio-footer-color);
@@ -103,6 +101,8 @@ img {
 .header-link {
   position: relative;
   color: var(--primary-text-color);
+
+  transition: color 250ms var(--timing-function);
 }
 
 .current.header-link {
@@ -146,6 +146,8 @@ img {
   align-items: center;
   gap: 10px;
   color: var(--secondary-text-color);
+
+  transition: color 250ms var(--timing-function);
 }
 
 .contact-header:hover,
@@ -286,12 +288,36 @@ img {
 }
 
 .work-item {
+  position: relative;
+
   margin-right: 30px;
   flex-basis: calc((100%-30px * (3-1)) / (3));
 }
 
 .work-item:last-child {
   margin-right: 0;
+}
+
+.work-overlay {
+  position: absolute;
+  bottom: 0;
+
+  width: 100%;
+  padding-top: 27px;
+  padding-bottom: 27px;
+
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
+.ovarlay-text {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: calc(16 / 14);
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: var(--title-text-color);
 }
 
 /*Наша команда*/
@@ -360,6 +386,9 @@ img {
   background-color: var(--title-text-color);
   border-radius: 50%;
   color: var(--socials-icon-color);
+
+  transition: background-color 250ms var(--timing-function),
+    color 250ms var(--timing-function);
 }
 
 .social-link:hover,
@@ -389,6 +418,9 @@ img {
   color: var(--socials-icon-color);
   border: 1px solid #afb1b8;
   border-radius: 4px;
+
+  transition: color 250ms var(--timing-function),
+    border 250ms var(--timing-function);
 }
 
 .clients-link:hover,
@@ -428,7 +460,13 @@ img {
   border-radius: 4px;
   border: transparent;
   cursor: pointer;
+
+  transition: color 250ms var(--timing-function),
+    background-color 250ms var(--timing-function),
+    box-shadow 250ms var(--timing-function),
+    border-radius 250ms var(--timing-function);
 }
+
 .filter-btn:hover,
 .filter-btn:focus {
   color: var(--title-text-color);
@@ -456,12 +494,51 @@ img {
   display: inline-block;
 
   color: inherit;
+  transition: box-shadow 250ms var(--timing-function);
 }
 
 .project-link:hover,
 .project-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(33, 150, 243, 0.9);
+
+  transform: translateY(100%);
+  transition: transform 250ms var(--timing-function);
+}
+
+.project-link:hover .project-overlay {
+  transform: translateY(0);
+}
+
+.project-description {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  padding: 63px 24px;
+}
+
+.description-text {
+  font-size: 18px;
+  line-height: calc(28 / 18);
+  letter-spacing: 0.03em;
+
+  color: tomato; /*var(--title-text-color);*/
 }
 
 .project-wrap {
@@ -526,6 +603,8 @@ img {
 
 .footer-address {
   color: var(--title-text-color);
+
+  transition: color 250ms var(--timing-function);
 }
 
 .footer-address:hover,
@@ -535,6 +614,8 @@ img {
 
 .footer-contact {
   color: rgba(255, 255, 255, 0.6);
+
+  transition: color 250ms var(--timing-function);
 }
 
 .footer-contact:hover,
